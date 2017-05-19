@@ -1,0 +1,532 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QCModelStoreContainer" CdmEntityContainer="QCEntities">
+    <EntitySetMapping Name="tblActivityTypes">
+      <EntityTypeMapping TypeName="QCModel.tblActivityType">
+        <MappingFragment StoreEntitySet="tblActivityType">
+          <ScalarProperty Name="ActivityTypeID" ColumnName="ActivityTypeID" />
+          <ScalarProperty Name="ActivityType" ColumnName="ActivityType" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblApplications">
+      <EntityTypeMapping TypeName="QCModel.tblApplication">
+        <MappingFragment StoreEntitySet="tblApplications">
+          <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+          <ScalarProperty Name="Application" ColumnName="Application" />
+          <ScalarProperty Name="Scope" ColumnName="Scope" />
+          <ScalarProperty Name="Grid" ColumnName="Grid" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="FSLName" ColumnName="FSLName" />
+          <ScalarProperty Name="HCLCSM" ColumnName="HCLCSM" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="OffLeadSAPID" ColumnName="OffLeadSAPID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppMonitorFrequecies">
+      <EntityTypeMapping TypeName="QCModel.tblAppMonitorFrequecy">
+        <MappingFragment StoreEntitySet="tblAppMonitorFrequecy">
+          <ScalarProperty Name="FreqeuncyID" ColumnName="FreqeuncyID" />
+          <ScalarProperty Name="HMID" ColumnName="HMID" />
+          <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+          <ScalarProperty Name="Mon" ColumnName="Mon" />
+          <ScalarProperty Name="Tue" ColumnName="Tue" />
+          <ScalarProperty Name="Wed" ColumnName="Wed" />
+          <ScalarProperty Name="Thu" ColumnName="Thu" />
+          <ScalarProperty Name="Fri" ColumnName="Fri" />
+          <ScalarProperty Name="Sat" ColumnName="Sat" />
+          <ScalarProperty Name="Sun" ColumnName="Sun" />
+          <ScalarProperty Name="IsDaily" ColumnName="IsDaily" />
+          <ScalarProperty Name="IsEveryWeek" ColumnName="IsEveryWeek" />
+          <ScalarProperty Name="IsMonthly" ColumnName="IsMonthly" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDailyTaskSchedulers">
+      <EntityTypeMapping TypeName="QCModel.tblDailyTaskScheduler">
+        <MappingFragment StoreEntitySet="tblDailyTaskScheduler">
+          <ScalarProperty Name="TaskScheduleID" ColumnName="TaskScheduleID" />
+          <ScalarProperty Name="FreqeuncyID" ColumnName="FreqeuncyID" />
+          <ScalarProperty Name="HMID" ColumnName="HMID" />
+          <ScalarProperty Name="ScheduledDate" ColumnName="ScheduledDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblHMRunMasters">
+      <EntityTypeMapping TypeName="QCModel.tblHMRunMaster">
+        <MappingFragment StoreEntitySet="tblHMRunMaster">
+          <ScalarProperty Name="RunID" ColumnName="RunID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblHMTasks">
+      <EntityTypeMapping TypeName="QCModel.tblHMTask">
+        <MappingFragment StoreEntitySet="tblHMTasks">
+          <ScalarProperty Name="HMID" ColumnName="HMID" />
+          <ScalarProperty Name="HMActivityID" ColumnName="HMActivityID" />
+          <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+          <ScalarProperty Name="FSL" ColumnName="FSL" />
+          <ScalarProperty Name="ServiceLevel" ColumnName="ServiceLevel" />
+          <ScalarProperty Name="MonitoringStartTime" ColumnName="MonitoringStartTime" />
+          <ScalarProperty Name="MonitoringEndTime" ColumnName="MonitoringEndTime" />
+          <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
+          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+          <ScalarProperty Name="Recurrence" ColumnName="Recurrence" />
+          <ScalarProperty Name="ActivityCategory" ColumnName="ActivityCategory" />
+          <ScalarProperty Name="ActivityDescription" ColumnName="ActivityDescription" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblHMTasks1">
+      <EntityTypeMapping TypeName="QCModel.tblHMTasks1">
+        <MappingFragment StoreEntitySet="tblHMTasks1">
+          <ScalarProperty Name="HMID" ColumnName="HMID" />
+          <ScalarProperty Name="HMActivityID" ColumnName="HMActivityID" />
+          <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+          <ScalarProperty Name="FSL" ColumnName="FSL" />
+          <ScalarProperty Name="ServiceLevel" ColumnName="ServiceLevel" />
+          <ScalarProperty Name="MonitoringStartTime" ColumnName="MonitoringStartTime" />
+          <ScalarProperty Name="MonitoringEndTime" ColumnName="MonitoringEndTime" />
+          <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
+          <ScalarProperty Name="TimeSlotIST" ColumnName="TimeSlotIST" />
+          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+          <ScalarProperty Name="Recurrence" ColumnName="Recurrence" />
+          <ScalarProperty Name="ActivityCategory" ColumnName="ActivityCategory" />
+          <ScalarProperty Name="ActivityDescription" ColumnName="ActivityDescription" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="FollowupAction" ColumnName="FollowupAction" />
+          <ScalarProperty Name="IsSelfTaskCreated" ColumnName="IsSelfTaskCreated" />
+          <ScalarProperty Name="REQNo" ColumnName="REQNo" />
+          <ScalarProperty Name="ResourceSAPID" ColumnName="ResourceSAPID" />
+          <ScalarProperty Name="BckResourceSAPID" ColumnName="BckResourceSAPID" />
+          <ScalarProperty Name="LeadSAPID" ColumnName="LeadSAPID" />
+          <ScalarProperty Name="IsNotifyAIG" ColumnName="IsNotifyAIG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblHMTasks2">
+      <EntityTypeMapping TypeName="QCModel.tblHMTasks2">
+        <MappingFragment StoreEntitySet="tblHMTasks2">
+          <ScalarProperty Name="HMID" ColumnName="HMID" />
+          <ScalarProperty Name="HMActivityID" ColumnName="HMActivityID" />
+          <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+          <ScalarProperty Name="FSL" ColumnName="FSL" />
+          <ScalarProperty Name="ServiceLevel" ColumnName="ServiceLevel" />
+          <ScalarProperty Name="MonitoringStartTime" ColumnName="MonitoringStartTime" />
+          <ScalarProperty Name="MonitoringEndTime" ColumnName="MonitoringEndTime" />
+          <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
+          <ScalarProperty Name="TimeSlotIST" ColumnName="TimeSlotIST" />
+          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+          <ScalarProperty Name="Recurrence" ColumnName="Recurrence" />
+          <ScalarProperty Name="ActivityCategory" ColumnName="ActivityCategory" />
+          <ScalarProperty Name="ActivityDescription" ColumnName="ActivityDescription" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="FollowupAction" ColumnName="FollowupAction" />
+          <ScalarProperty Name="IsSelfTaskCreated" ColumnName="IsSelfTaskCreated" />
+          <ScalarProperty Name="REQNo" ColumnName="REQNo" />
+          <ScalarProperty Name="EffortsInMin" ColumnName="EffortsInMin" />
+          <ScalarProperty Name="ResourceSAPID" ColumnName="ResourceSAPID" />
+          <ScalarProperty Name="BckResourceSAPID" ColumnName="BckResourceSAPID" />
+          <ScalarProperty Name="LeadSAPID" ColumnName="LeadSAPID" />
+          <ScalarProperty Name="IsNotifyAIG" ColumnName="IsNotifyAIG" />
+          <ScalarProperty Name="AIG_Resources" ColumnName="AIG Resources" />
+          <ScalarProperty Name="RunID" ColumnName="RunID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblHMUsers">
+      <EntityTypeMapping TypeName="QCModel.tblHMUser">
+        <MappingFragment StoreEntitySet="tblHMUsers">
+          <ScalarProperty Name="HMUserTranID" ColumnName="HMUserTranID" />
+          <ScalarProperty Name="HMID" ColumnName="HMID" />
+          <ScalarProperty Name="Efforts" ColumnName="Efforts" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDateTimeIST" ColumnName="UpdatedDateTimeIST" />
+          <ScalarProperty Name="UpdatedDateTimeCST" ColumnName="UpdatedDateTimeCST" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="ActualH_MDate" ColumnName="ActualH&amp;MDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMSATrackingInfoes">
+      <EntityTypeMapping TypeName="QCModel.tblMSATrackingInfo">
+        <MappingFragment StoreEntitySet="tblMSATrackingInfo">
+          <ScalarProperty Name="MSATrackerNumber" ColumnName="MSATrackerNumber" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+          <ScalarProperty Name="ServiceNowCategoryID" ColumnName="ServiceNowCategoryID" />
+          <ScalarProperty Name="ServiceNowNumber" ColumnName="ServiceNowNumber" />
+          <ScalarProperty Name="ActivityTypeID" ColumnName="ActivityTypeID" />
+          <ScalarProperty Name="SubActivityTypeID" ColumnName="SubActivityTypeID" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="ActualTime" ColumnName="ActualTime" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="IsKeDB" ColumnName="IsKeDB" />
+          <ScalarProperty Name="Kedb" ColumnName="Kedb" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblResponseRecoveryInfoes">
+      <EntityTypeMapping TypeName="QCModel.tblResponseRecoveryInfo">
+        <MappingFragment StoreEntitySet="tblResponseRecoveryInfo">
+          <ScalarProperty Name="ResponseRecoveryID" ColumnName="ResponseRecoveryID" />
+          <ScalarProperty Name="TaskNo" ColumnName="TaskNo" />
+          <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+          <ScalarProperty Name="AssignmentDate" ColumnName="AssignmentDate" />
+          <ScalarProperty Name="ResponseTime" ColumnName="ResponseTime" />
+          <ScalarProperty Name="RecoveryTime" ColumnName="RecoveryTime" />
+          <ScalarProperty Name="IsKeDB" ColumnName="IsKeDB" />
+          <ScalarProperty Name="KedbLocation" ColumnName="KedbLocation" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblScheduleMasters">
+      <EntityTypeMapping TypeName="QCModel.tblScheduleMaster">
+        <MappingFragment StoreEntitySet="tblScheduleMaster">
+          <ScalarProperty Name="RunScheduleID" ColumnName="RunScheduleID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="IsHoliday" ColumnName="IsHoliday" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblServiceNowCategories">
+      <EntityTypeMapping TypeName="QCModel.tblServiceNowCategory">
+        <MappingFragment StoreEntitySet="tblServiceNowCategory">
+          <ScalarProperty Name="ServiceNowCategoryID" ColumnName="ServiceNowCategoryID" />
+          <ScalarProperty Name="ServiceNowCategory" ColumnName="ServiceNowCategory" />
+          <ScalarProperty Name="ServiceNowGroup" ColumnName="ServiceNowGroup" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSubActivityTypes">
+      <EntityTypeMapping TypeName="QCModel.tblSubActivityType">
+        <MappingFragment StoreEntitySet="tblSubActivityType">
+          <ScalarProperty Name="SubActivityID" ColumnName="SubActivityID" />
+          <ScalarProperty Name="SubActivity" ColumnName="SubActivity" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTrackingInfoes">
+      <EntityTypeMapping TypeName="QCModel.tblTrackingInfo">
+        <MappingFragment StoreEntitySet="tblTrackingInfo">
+          <ScalarProperty Name="TrackerNumber" ColumnName="TrackerNumber" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="PPM_No" ColumnName="PPM_No" />
+          <ScalarProperty Name="Application_Name" ColumnName="Application_Name" />
+          <ScalarProperty Name="Project_Name" ColumnName="Project_Name" />
+          <ScalarProperty Name="CR_Type" ColumnName="CR_Type" />
+          <ScalarProperty Name="Activity_Type" ColumnName="Activity_Type" />
+          <ScalarProperty Name="Sub_Activity_Type" ColumnName="Sub_Activity_Type" />
+          <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+          <ScalarProperty Name="End_Time" ColumnName="End_Time" />
+          <ScalarProperty Name="Actual_Time" ColumnName="Actual_Time" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="BindEmpGrid_Sp" FunctionName="QCModel.Store.BindEmpGrid_Sp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QCModel.BindEmpGrid_Sp_Result">
+          <ScalarProperty Name="SAPID" ColumnName="SAPID" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="ODCLanID" ColumnName="ODCLanID" />
+          <ScalarProperty Name="ODCMailID" ColumnName="ODCMailID" />
+          <ScalarProperty Name="HCLLANID" ColumnName="HCLLANID" />
+          <ScalarProperty Name="HCLMailID" ColumnName="HCLMailID" />
+          <ScalarProperty Name="AIGLANID" ColumnName="AIGLANID" />
+          <ScalarProperty Name="AIGMailID" ColumnName="AIGMailID" />
+          <ScalarProperty Name="AIGFullName" ColumnName="AIGFullName" />
+          <ScalarProperty Name="RMSAPID" ColumnName="RMSAPID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="deleteEmployeeInfo" FunctionName="QCModel.Store.deleteEmployeeInfo" />
+    <FunctionImportMapping FunctionImportName="HM_GetHMDashboardInCompTasks" FunctionName="QCModel.Store.HM_GetHMDashboardInCompTasks">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QCModel.HM_GetHMDashboardInCompTasks_Result">
+          <ScalarProperty Name="HMActivityID" ColumnName="HMActivityID" />
+          <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+          <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="HM_GetHMDashboardStatus" FunctionName="QCModel.Store.HM_GetHMDashboardStatus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QCModel.HM_GetHMDashboardStatus_Result">
+          <ScalarProperty Name="TotalTasks" ColumnName="TotalTasks" />
+          <ScalarProperty Name="Completed" ColumnName="Completed" />
+          <ScalarProperty Name="InCompleted" ColumnName="InCompleted" />
+          <ScalarProperty Name="Untouched" ColumnName="Untouched" />
+          <ScalarProperty Name="Breached" ColumnName="Breached" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="HM_GetHMTasks" FunctionName="QCModel.Store.HM_GetHMTasks">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QCModel.HM_GetHMTasks_Result">
+          <ScalarProperty Name="HMID" ColumnName="HMID" />
+          <ScalarProperty Name="HMActivityID" ColumnName="HMActivityID" />
+          <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+          <ScalarProperty Name="FSL" ColumnName="FSL" />
+          <ScalarProperty Name="ServiceLevel" ColumnName="ServiceLevel" />
+          <ScalarProperty Name="MonitoringStartTime" ColumnName="MonitoringStartTime" />
+          <ScalarProperty Name="MonitoringEndTime" ColumnName="MonitoringEndTime" />
+          <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
+          <ScalarProperty Name="TimeSlotIST" ColumnName="TimeSlotIST" />
+          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+          <ScalarProperty Name="Recurrence" ColumnName="Recurrence" />
+          <ScalarProperty Name="ActivityCategory" ColumnName="ActivityCategory" />
+          <ScalarProperty Name="ActivityDescription" ColumnName="ActivityDescription" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="FollowupAction" ColumnName="FollowupAction" />
+          <ScalarProperty Name="IsSelfTaskCreated" ColumnName="IsSelfTaskCreated" />
+          <ScalarProperty Name="REQNo" ColumnName="REQNo" />
+          <ScalarProperty Name="EffortsInMin" ColumnName="EffortsInMin" />
+          <ScalarProperty Name="ResourceSAPID" ColumnName="ResourceSAPID" />
+          <ScalarProperty Name="BckResourceSAPID" ColumnName="BckResourceSAPID" />
+          <ScalarProperty Name="LeadSAPID" ColumnName="LeadSAPID" />
+          <ScalarProperty Name="IsNotifyAIG" ColumnName="IsNotifyAIG" />
+          <ScalarProperty Name="AIG_Resources" ColumnName="AIG Resources" />
+          <ScalarProperty Name="RunID" ColumnName="RunID" />
+          <ScalarProperty Name="ISTTime" ColumnName="ISTTime" />
+          <ScalarProperty Name="Primary" ColumnName="Primary" />
+          <ScalarProperty Name="Secondary" ColumnName="Secondary" />
+          <ScalarProperty Name="Iscompleted" ColumnName="Iscompleted" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="HM_SaveHMTasks" FunctionName="QCModel.Store.HM_SaveHMTasks" />
+    <FunctionImportMapping FunctionImportName="MissingMSAEntries" FunctionName="QCModel.Store.MissingMSAEntries">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QCModel.MissingMSAEntries_Result">
+          <ScalarProperty Name="ServiceNowNumber" ColumnName="ServiceNowNumber" />
+          <ScalarProperty Name="AIGEmployeeName" ColumnName="AIGEmployeeName" />
+          <ScalarProperty Name="AssignmentGroup" ColumnName="AssignmentGroup" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="MonthlyWSR" FunctionName="QCModel.Store.MonthlyWSR">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QCModel.MonthlyWSR_Result">
+          <ScalarProperty Name="MSATrackerNumber" ColumnName="MSATrackerNumber" />
+          <ScalarProperty Name="TrakerDate" ColumnName="TrakerDate" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="EmployeeSAPID" ColumnName="EmployeeSAPID" />
+          <ScalarProperty Name="ServiceNowCategory" ColumnName="ServiceNowCategory" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="ReportingManagerSAPID" ColumnName="ReportingManagerSAPID" />
+          <ScalarProperty Name="ServiceNowNumber" ColumnName="ServiceNowNumber" />
+          <ScalarProperty Name="AIGEmployeeName" ColumnName="AIGEmployeeName" />
+          <ScalarProperty Name="AssignmentGroup" ColumnName="AssignmentGroup" />
+          <ScalarProperty Name="ActivityType" ColumnName="ActivityType" />
+          <ScalarProperty Name="SubActivity" ColumnName="SubActivity" />
+          <ScalarProperty Name="Application" ColumnName="Application" />
+          <ScalarProperty Name="Sec" ColumnName="Sec" />
+          <ScalarProperty Name="min" ColumnName="min" />
+          <ScalarProperty Name="hrs" ColumnName="hrs" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="MSA_GetApplications" FunctionName="QCModel.Store.MSA_GetApplications">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QCModel.MSA_GetApplications_Result">
+          <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+          <ScalarProperty Name="Application" ColumnName="Application" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="MSA_GetServiceNowCategory" FunctionName="QCModel.Store.MSA_GetServiceNowCategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QCModel.MSA_GetServiceNowCategory_Result">
+          <ScalarProperty Name="ServiceNowCategoryID" ColumnName="ServiceNowCategoryID" />
+          <ScalarProperty Name="ServiceNowCategory" ColumnName="ServiceNowCategory" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="procServiceNowEntries_Dummy" FunctionName="QCModel.Store.procServiceNowEntries_Dummy" />
+    <FunctionImportMapping FunctionImportName="procUDTHMTask_Dummy" FunctionName="QCModel.Store.procUDTHMTask_Dummy" />
+    <FunctionImportMapping FunctionImportName="QC_DeleteDailyTracker" FunctionName="QCModel.Store.QC_DeleteDailyTracker" />
+    <FunctionImportMapping FunctionImportName="QC_DeleteMSADailyTracker" FunctionName="QCModel.Store.QC_DeleteMSADailyTracker" />
+    <FunctionImportMapping FunctionImportName="QC_DeleteRRTracker" FunctionName="QCModel.Store.QC_DeleteRRTracker" />
+    <FunctionImportMapping FunctionImportName="QC_GetActivitySubActivities" FunctionName="QCModel.Store.QC_GetActivitySubActivities">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QCModel.QC_GetActivitySubActivities_Result">
+          <ScalarProperty Name="SubActivityID" ColumnName="SubActivityID" />
+          <ScalarProperty Name="SubActivity" ColumnName="SubActivity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="QC_GetActivityType" FunctionName="QCModel.Store.QC_GetActivityType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QCModel.QC_GetActivityType_Result">
+          <ScalarProperty Name="ActivityTypeID" ColumnName="ActivityTypeID" />
+          <ScalarProperty Name="ActivityType" ColumnName="ActivityType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="QC_GetDailyTracker" FunctionName="QCModel.Store.QC_GetDailyTracker">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QCModel.QC_GetDailyTracker_Result">
+          <ScalarProperty Name="TrackerNumber" ColumnName="TrackerNumber" />
+          <ScalarProperty Name="TrakerDate" ColumnName="TrakerDate" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="PPM_No" ColumnName="PPM_No" />
+          <ScalarProperty Name="Application_Name" ColumnName="Application_Name" />
+          <ScalarProperty Name="Project_Name" ColumnName="Project_Name" />
+          <ScalarProperty Name="CR_Type" ColumnName="CR_Type" />
+          <ScalarProperty Name="ActivityType" ColumnName="ActivityType" />
+          <ScalarProperty Name="SubActivity" ColumnName="SubActivity" />
+          <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+          <ScalarProperty Name="End_Time" ColumnName="End_Time" />
+          <ScalarProperty Name="Actual_Time" ColumnName="Actual_Time" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Sec" ColumnName="Sec" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="QC_GetHMTasks" FunctionName="QCModel.Store.QC_GetHMTasks">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QCModel.QC_GetHMTasks_Result">
+          <ScalarProperty Name="HMID" ColumnName="HMID" />
+          <ScalarProperty Name="HMActivityID" ColumnName="HMActivityID" />
+          <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+          <ScalarProperty Name="FSL" ColumnName="FSL" />
+          <ScalarProperty Name="ServiceLevel" ColumnName="ServiceLevel" />
+          <ScalarProperty Name="MonitoringStartTime" ColumnName="MonitoringStartTime" />
+          <ScalarProperty Name="MonitoringEndTime" ColumnName="MonitoringEndTime" />
+          <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
+          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+          <ScalarProperty Name="Recurrence" ColumnName="Recurrence" />
+          <ScalarProperty Name="ActivityCategory" ColumnName="ActivityCategory" />
+          <ScalarProperty Name="ActivityDescription" ColumnName="ActivityDescription" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="ISTTime" ColumnName="ISTTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="QC_GetMSADailyTracker" FunctionName="QCModel.Store.QC_GetMSADailyTracker">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QCModel.QC_GetMSADailyTracker_Result">
+          <ScalarProperty Name="TrackerNumber" ColumnName="TrackerNumber" />
+          <ScalarProperty Name="TrakerDate" ColumnName="TrakerDate" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="Application" ColumnName="Application" />
+          <ScalarProperty Name="ServiceNowCategory" ColumnName="ServiceNowCategory" />
+          <ScalarProperty Name="ServiceNowNumber" ColumnName="ServiceNowNumber" />
+          <ScalarProperty Name="ActivityType" ColumnName="ActivityType" />
+          <ScalarProperty Name="SubActivity" ColumnName="SubActivity" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="ActualTime" ColumnName="ActualTime" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Sec" ColumnName="Sec" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="QC_GetMSADailyTracker_Test" FunctionName="QCModel.Store.QC_GetMSADailyTracker_Test">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QCModel.QC_GetMSADailyTracker_Test_Result">
+          <ScalarProperty Name="TrackerNumber" ColumnName="TrackerNumber" />
+          <ScalarProperty Name="TrakerDate" ColumnName="TrakerDate" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="ServiceNowCategory" ColumnName="ServiceNowCategory" />
+          <ScalarProperty Name="ServiceNowNumber" ColumnName="ServiceNowNumber" />
+          <ScalarProperty Name="ActualTime" ColumnName="ActualTime" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Sec" ColumnName="Sec" />
+          <ScalarProperty Name="IsKeDB" ColumnName="IsKeDB" />
+          <ScalarProperty Name="Kedb" ColumnName="Kedb" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="QC_GetMSAFullDump" FunctionName="QCModel.Store.QC_GetMSAFullDump">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QCModel.QC_GetMSAFullDump_Result">
+          <ScalarProperty Name="TrackerNumber" ColumnName="TrackerNumber" />
+          <ScalarProperty Name="TrakerDate" ColumnName="TrakerDate" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="EmployeeSAPID" ColumnName="EmployeeSAPID" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="ReportingManagerSAPID" ColumnName="ReportingManagerSAPID" />
+          <ScalarProperty Name="Application" ColumnName="Application" />
+          <ScalarProperty Name="ServiceNowCategory" ColumnName="ServiceNowCategory" />
+          <ScalarProperty Name="ServiceNowNumber" ColumnName="ServiceNowNumber" />
+          <ScalarProperty Name="ActivityType" ColumnName="ActivityType" />
+          <ScalarProperty Name="SubActivity" ColumnName="SubActivity" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="ActualTime" ColumnName="ActualTime" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Sec" ColumnName="Sec" />
+          <ScalarProperty Name="min" ColumnName="min" />
+          <ScalarProperty Name="hrs" ColumnName="hrs" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="QC_GetRRTracker" FunctionName="QCModel.Store.QC_GetRRTracker">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QCModel.QC_GetRRTracker_Result">
+          <ScalarProperty Name="ResponseRecoveryID" ColumnName="ResponseRecoveryID" />
+          <ScalarProperty Name="TaskNo" ColumnName="TaskNo" />
+          <ScalarProperty Name="Application" ColumnName="Application" />
+          <ScalarProperty Name="AssignmentDate" ColumnName="AssignmentDate" />
+          <ScalarProperty Name="ResponseTime" ColumnName="ResponseTime" />
+          <ScalarProperty Name="RecoveryTime" ColumnName="RecoveryTime" />
+          <ScalarProperty Name="IsKeDB" ColumnName="IsKeDB" />
+          <ScalarProperty Name="KedbLocation" ColumnName="KedbLocation" />
+          <ScalarProperty Name="ResponseHrs" ColumnName="ResponseHrs" />
+          <ScalarProperty Name="RecoveryHrs" ColumnName="RecoveryHrs" />
+          <ScalarProperty Name="ResponseSeconds" ColumnName="ResponseSeconds" />
+          <ScalarProperty Name="RecoverySeconds" ColumnName="RecoverySeconds" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="QC_SaveDailyTracker" FunctionName="QCModel.Store.QC_SaveDailyTracker" />
+    <FunctionImportMapping FunctionImportName="QC_SaveMSADailyTracker" FunctionName="QCModel.Store.QC_SaveMSADailyTracker" />
+    <FunctionImportMapping FunctionImportName="QC_SaveMSADailyTracker_Test" FunctionName="QCModel.Store.QC_SaveMSADailyTracker_Test" />
+    <FunctionImportMapping FunctionImportName="QC_SavetblResponseRecoveryTracker" FunctionName="QCModel.Store.QC_SavetblResponseRecoveryTracker" />
+    <FunctionImportMapping FunctionImportName="QC_UpdateDailyTracker" FunctionName="QCModel.Store.QC_UpdateDailyTracker" />
+    <FunctionImportMapping FunctionImportName="QC_UpdateMSADailyTracker" FunctionName="QCModel.Store.QC_UpdateMSADailyTracker" />
+    <FunctionImportMapping FunctionImportName="QC_UpdateRRTracker" FunctionName="QCModel.Store.QC_UpdateRRTracker" />
+    <FunctionImportMapping FunctionImportName="SaveDetails" FunctionName="QCModel.Store.SaveDetails" />
+    <FunctionImportMapping FunctionImportName="SearchEmpRecords_Sp" FunctionName="QCModel.Store.SearchEmpRecords_Sp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QCModel.SearchEmpRecords_Sp_Result">
+          <ScalarProperty Name="SAPID" ColumnName="SAPID" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="ODCLanID" ColumnName="ODCLanID" />
+          <ScalarProperty Name="ODCMailID" ColumnName="ODCMailID" />
+          <ScalarProperty Name="HCLLANID" ColumnName="HCLLANID" />
+          <ScalarProperty Name="HCLMailID" ColumnName="HCLMailID" />
+          <ScalarProperty Name="AIGLANID" ColumnName="AIGLANID" />
+          <ScalarProperty Name="AIGMailID" ColumnName="AIGMailID" />
+          <ScalarProperty Name="AIGFullName" ColumnName="AIGFullName" />
+          <ScalarProperty Name="RMSAPID" ColumnName="RMSAPID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,621 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'QC.dbo.Sheet1$' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Sheet1$">
+          <Property Name="HMID" Type="nvarchar" MaxLength="255" />
+          <Property Name="H&amp;M Activity ID_ (Activity Category-Frequency-Sequence No)" Type="nvarchar" MaxLength="255" />
+          <Property Name="Application Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="FSL" Type="nvarchar" MaxLength="255" />
+          <Property Name="Service Level" Type="nvarchar" MaxLength="255" />
+          <Property Name="Check/Monitoring Start Time" Type="datetime" />
+          <Property Name="Check/Monitoring End Time" Type="datetime" />
+          <Property Name="Time Slot" Type="nvarchar" MaxLength="255" />
+          <Property Name="Frequency" Type="nvarchar" MaxLength="255" />
+          <Property Name="Recurrence" Type="nvarchar" MaxLength="255" />
+          <Property Name="Activity Category" Type="nvarchar" MaxLength="255" />
+          <Property Name="Activity Description" Type="nvarchar(max)" />
+          <Property Name="Activity Description1" Type="nvarchar(max)" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="255" />
+          <Property Name="F15" Type="float" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'QC.dbo.tblActivitySubActivity_xref' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblActivitySubActivity_xref">
+          <Property Name="ActivityTypeID" Type="int" />
+          <Property Name="SubActivityID" Type="int" />
+          <Property Name="ServiceNowGroup" Type="char" MaxLength="1" />
+        </EntityType>-->
+  <EntityType Name="tblActivityType">
+    <Key>
+      <PropertyRef Name="ActivityTypeID" />
+    </Key>
+    <Property Name="ActivityTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActivityType" Type="varchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblApplications">
+    <Key>
+      <PropertyRef Name="ApplicationID" />
+    </Key>
+    <Property Name="ApplicationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Application" Type="varchar" MaxLength="250" />
+    <Property Name="Scope" Type="varchar" MaxLength="50" />
+    <Property Name="Grid" Type="int" />
+    <Property Name="Category" Type="varchar" MaxLength="20" />
+    <Property Name="FSLName" Type="varchar" MaxLength="50" />
+    <Property Name="HCLCSM" Type="varchar" MaxLength="250" />
+    <Property Name="Location" Type="varchar" MaxLength="150" />
+    <Property Name="OffLeadSAPID" Type="int" />
+  </EntityType>
+  <EntityType Name="tblAppMonitorFrequecy">
+    <Key>
+      <PropertyRef Name="FreqeuncyID" />
+    </Key>
+    <Property Name="FreqeuncyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HMID" Type="int" />
+    <Property Name="ApplicationID" Type="int" />
+    <Property Name="Mon" Type="bit" />
+    <Property Name="Tue" Type="bit" />
+    <Property Name="Wed" Type="bit" />
+    <Property Name="Thu" Type="bit" />
+    <Property Name="Fri" Type="bit" />
+    <Property Name="Sat" Type="bit" />
+    <Property Name="Sun" Type="bit" />
+    <Property Name="IsDaily" Type="bit" />
+    <Property Name="IsEveryWeek" Type="bit" />
+    <Property Name="IsMonthly" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'QC.dbo.tblAppMonthly' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblAppMonthly">
+          <Property Name="HMID" Type="int" />
+          <Property Name="ApplicationID" Type="int" />
+          <Property Name="FrequencyID" Type="int" />
+          <Property Name="Month" Type="varchar" MaxLength="20" />
+          <Property Name="Date" Type="varchar" MaxLength="5" />
+          <Property Name="IsEveryMonth" Type="bit" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'QC.dbo.tblDailyHuddle_INC' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblDailyHuddle_INC">
+          <Property Name="Incident_Number" Type="varchar" MaxLength="20" />
+          <Property Name="Severity" Type="varchar" MaxLength="10" />
+          <Property Name="Priority" Type="varchar" MaxLength="20" />
+          <Property Name="IncidentState" Type="varchar" MaxLength="20" />
+          <Property Name="ReportedOn" Type="smalldatetime" />
+          <Property Name="Escalation" Type="varchar" MaxLength="20" />
+          <Property Name="Caller" Type="varchar" MaxLength="150" />
+          <Property Name="AssignmentGroup" Type="varchar" MaxLength="50" />
+          <Property Name="AssignedTo" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+          <Property Name="WorkNotes" Type="nvarchar" MaxLength="2000" />
+          <Property Name="FollowUpDate" Type="date" />
+          <Property Name="EndTime" Type="varchar" MaxLength="50" />
+          <Property Name="Reopened" Type="varchar" MaxLength="10" />
+          <Property Name="Categorization" Type="varchar" MaxLength="150" />
+          <Property Name="Location" Type="varchar" MaxLength="150" />
+        </EntityType>-->
+  <EntityType Name="tblDailyTaskScheduler">
+    <Key>
+      <PropertyRef Name="TaskScheduleID" />
+    </Key>
+    <Property Name="TaskScheduleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FreqeuncyID" Type="int" />
+    <Property Name="HMID" Type="int" />
+    <Property Name="ScheduledDate" Type="smalldatetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'QC.dbo.tblEmployeeInfo' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblEmployeeInfo">
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="EmployeeName" Type="varchar" MaxLength="500" />
+          <Property Name="Task" Type="varchar" MaxLength="1000" />
+          <Property Name="Date" Type="varchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'QC.dbo.tblEmployeesMaster' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblEmployeesMaster">
+          <Property Name="SAPID" Type="int" />
+          <Property Name="EmployeeName" Type="varchar" MaxLength="250" />
+          <Property Name="ODCLanID" Type="varchar" MaxLength="500" />
+          <Property Name="ODCMailID" Type="varchar" MaxLength="500" />
+          <Property Name="HCLLANID" Type="varchar" MaxLength="500" />
+          <Property Name="HCLMailID" Type="varchar" MaxLength="500" />
+          <Property Name="AIGLANID" Type="varchar" MaxLength="500" />
+          <Property Name="AIGMailID" Type="varchar" MaxLength="500" />
+          <Property Name="AIGFullName" Type="varchar" MaxLength="500" />
+          <Property Name="RMSAPID" Type="int" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'QC.dbo.tblEmployeesMaster_Test' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblEmployeesMaster_Test">
+          <Property Name="SAPID" Type="int" />
+          <Property Name="EmployeeName" Type="varchar" MaxLength="250" />
+          <Property Name="ODCLanID" Type="varchar" MaxLength="500" />
+          <Property Name="ODCMailID" Type="varchar" MaxLength="500" />
+          <Property Name="HCLLANID" Type="varchar" MaxLength="500" />
+          <Property Name="HCLMailID" Type="varchar" MaxLength="500" />
+          <Property Name="AIGLANID" Type="varchar" MaxLength="500" />
+          <Property Name="AIGMailID" Type="varchar" MaxLength="500" />
+          <Property Name="AIGFullName" Type="varchar" MaxLength="500" />
+          <Property Name="RMSAPID" Type="int" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'QC.dbo.tblHMRunDateSchedule' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblHMRunDateSchedule">
+          <Property Name="RunID" Type="nchar" MaxLength="10" />
+          <Property Name="TasksRunDate" Type="date" />
+        </EntityType>-->
+  <EntityType Name="tblHMRunMaster">
+    <Key>
+      <PropertyRef Name="RunID" />
+    </Key>
+    <Property Name="RunID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblHMTasks">
+    <Key>
+      <PropertyRef Name="HMID" />
+    </Key>
+    <Property Name="HMID" Type="int" Nullable="false" />
+    <Property Name="HMActivityID" Type="varchar" MaxLength="20" />
+    <Property Name="ApplicationName" Type="varchar" MaxLength="500" />
+    <Property Name="FSL" Type="varchar" MaxLength="500" />
+    <Property Name="ServiceLevel" Type="varchar" MaxLength="500" />
+    <Property Name="MonitoringStartTime" Type="varchar" MaxLength="500" />
+    <Property Name="MonitoringEndTime" Type="varchar" MaxLength="500" />
+    <Property Name="TimeSlot" Type="varchar" MaxLength="500" />
+    <Property Name="Frequency" Type="varchar" MaxLength="500" />
+    <Property Name="Recurrence" Type="varchar" MaxLength="500" />
+    <Property Name="ActivityCategory" Type="varchar" MaxLength="500" />
+    <Property Name="ActivityDescription" Type="nvarchar(max)" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="4000" />
+  </EntityType>
+  <EntityType Name="tblHMTasks1">
+    <Key>
+      <PropertyRef Name="HMID" />
+    </Key>
+    <Property Name="HMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HMActivityID" Type="varchar" MaxLength="20" />
+    <Property Name="ApplicationName" Type="varchar" MaxLength="100" />
+    <Property Name="FSL" Type="varchar" MaxLength="50" />
+    <Property Name="ServiceLevel" Type="varchar" MaxLength="20" />
+    <Property Name="MonitoringStartTime" Type="varchar" MaxLength="50" />
+    <Property Name="MonitoringEndTime" Type="varchar" MaxLength="50" />
+    <Property Name="TimeSlot" Type="varchar" MaxLength="20" />
+    <Property Name="TimeSlotIST" Type="varchar" MaxLength="20" />
+    <Property Name="Frequency" Type="varchar" MaxLength="20" />
+    <Property Name="Recurrence" Type="varchar" MaxLength="50" />
+    <Property Name="ActivityCategory" Type="varchar" MaxLength="20" />
+    <Property Name="ActivityDescription" Type="nvarchar(max)" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="4000" />
+    <Property Name="FollowupAction" Type="nvarchar(max)" />
+    <Property Name="IsSelfTaskCreated" Type="nvarchar" MaxLength="4000" />
+    <Property Name="REQNo" Type="varchar" MaxLength="20" />
+    <Property Name="ResourceSAPID" Type="varchar" MaxLength="20" />
+    <Property Name="BckResourceSAPID" Type="varchar" MaxLength="20" />
+    <Property Name="LeadSAPID" Type="varchar" MaxLength="20" />
+    <Property Name="IsNotifyAIG" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="tblHMTasks2">
+    <Key>
+      <PropertyRef Name="HMID" />
+    </Key>
+    <Property Name="HMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HMActivityID" Type="varchar" MaxLength="20" />
+    <Property Name="ApplicationName" Type="varchar" MaxLength="100" />
+    <Property Name="FSL" Type="varchar" MaxLength="50" />
+    <Property Name="ServiceLevel" Type="varchar" MaxLength="20" />
+    <Property Name="MonitoringStartTime" Type="varchar" MaxLength="50" />
+    <Property Name="MonitoringEndTime" Type="varchar" MaxLength="50" />
+    <Property Name="TimeSlot" Type="varchar" MaxLength="20" />
+    <Property Name="TimeSlotIST" Type="varchar" MaxLength="20" />
+    <Property Name="Frequency" Type="varchar" MaxLength="200" />
+    <Property Name="Recurrence" Type="varchar" MaxLength="50" />
+    <Property Name="ActivityCategory" Type="varchar" MaxLength="20" />
+    <Property Name="ActivityDescription" Type="nvarchar(max)" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="4000" />
+    <Property Name="FollowupAction" Type="nvarchar(max)" />
+    <Property Name="IsSelfTaskCreated" Type="nvarchar" MaxLength="4000" />
+    <Property Name="REQNo" Type="varchar" MaxLength="20" />
+    <Property Name="EffortsInMin" Type="varchar" MaxLength="50" />
+    <Property Name="ResourceSAPID" Type="varchar" MaxLength="20" />
+    <Property Name="BckResourceSAPID" Type="varchar" MaxLength="20" />
+    <Property Name="LeadSAPID" Type="varchar" MaxLength="20" />
+    <Property Name="IsNotifyAIG" Type="varchar(max)" />
+    <Property Name="AIG Resources" Type="varchar(max)" />
+    <Property Name="RunID" Type="int" />
+  </EntityType>
+  <EntityType Name="tblHMUsers">
+    <Key>
+      <PropertyRef Name="HMUserTranID" />
+    </Key>
+    <Property Name="HMUserTranID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HMID" Type="int" />
+    <Property Name="Efforts" Type="varchar" MaxLength="10" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="UpdatedDateTimeIST" Type="smalldatetime" />
+    <Property Name="UpdatedDateTimeCST" Type="smalldatetime" />
+    <Property Name="Source" Type="char" MaxLength="1" />
+    <Property Name="Status" Type="char" MaxLength="1" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="2500" />
+    <Property Name="ActualH&amp;MDate" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'QC.dbo.tblHMUsersHistory' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblHMUsersHistory">
+          <Property Name="HMUserTranID" Type="int" />
+          <Property Name="HMID" Type="int" />
+          <Property Name="Efforts" Type="varchar" MaxLength="10" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="100" />
+          <Property Name="UpdatedDateTimeIST" Type="smalldatetime" />
+          <Property Name="UpdatedDateTimeCST" Type="smalldatetime" />
+          <Property Name="Source" Type="char" MaxLength="1" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="2500" />
+        </EntityType>-->
+  <EntityType Name="tblMSATrackingInfo">
+    <Key>
+      <PropertyRef Name="MSATrackerNumber" />
+    </Key>
+    <Property Name="MSATrackerNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="User_Name" Type="varchar" MaxLength="150" />
+    <Property Name="ApplicationID" Type="int" />
+    <Property Name="ServiceNowCategoryID" Type="int" />
+    <Property Name="ServiceNowNumber" Type="varchar" MaxLength="20" />
+    <Property Name="ActivityTypeID" Type="int" />
+    <Property Name="SubActivityTypeID" Type="int" />
+    <Property Name="StartTime" Type="varchar" MaxLength="50" />
+    <Property Name="EndTime" Type="varchar" MaxLength="50" />
+    <Property Name="ActualTime" Type="varchar" MaxLength="10" />
+    <Property Name="Comments" Type="varchar" MaxLength="1000" />
+    <Property Name="IsKeDB" Type="bit" />
+    <Property Name="Kedb" Type="varchar" MaxLength="1000" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblResponseRecoveryInfo">
+    <Key>
+      <PropertyRef Name="ResponseRecoveryID" />
+    </Key>
+    <Property Name="ResponseRecoveryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaskNo" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ApplicationID" Type="int" />
+    <Property Name="AssignmentDate" Type="smalldatetime" />
+    <Property Name="ResponseTime" Type="smalldatetime" />
+    <Property Name="RecoveryTime" Type="smalldatetime" />
+    <Property Name="IsKeDB" Type="bit" />
+    <Property Name="KedbLocation" Type="varchar" MaxLength="1500" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="250" />
+    <Property Name="UpdatedTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblScheduleMaster">
+    <Key>
+      <PropertyRef Name="RunScheduleID" />
+    </Key>
+    <Property Name="RunScheduleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="IsHoliday" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblServiceNowCategory">
+    <Key>
+      <PropertyRef Name="ServiceNowCategoryID" />
+    </Key>
+    <Property Name="ServiceNowCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServiceNowCategory" Type="varchar" MaxLength="150" />
+    <Property Name="ServiceNowGroup" Type="char" MaxLength="1" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'QC.dbo.tblServiceNowEntries' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblServiceNowEntries">
+          <Property Name="ServiceNowNumber" Type="varchar" MaxLength="50" />
+          <Property Name="AIGEmployeeName" Type="varchar" MaxLength="500" />
+          <Property Name="AssignmentGroup" Type="varchar" MaxLength="500" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'QC.dbo.tblServiceNowEntries_Dummy' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblServiceNowEntries_Dummy">
+          <Property Name="ServiceNowNumber" Type="varchar" MaxLength="50" />
+          <Property Name="AIGEmployeeName" Type="varchar" MaxLength="500" />
+          <Property Name="AssignmentGroup" Type="varchar" MaxLength="500" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'QC.dbo.tblStgRR' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblStgRR">
+          <Property Name="No" Type="varchar" MaxLength="100" />
+          <Property Name="Employee" Type="varchar" MaxLength="350" />
+          <Property Name="Application" Type="varchar" MaxLength="350" />
+          <Property Name="Assigned" Type="datetime" />
+          <Property Name="Response" Type="datetime" />
+          <Property Name="Recovery" Type="datetime" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'QC.dbo.tblStudents' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblStudents">
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Marks" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Gender" Type="char" MaxLength="1" />
+          <Property Name="Class" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>-->
+  <EntityType Name="tblSubActivityType">
+    <Key>
+      <PropertyRef Name="SubActivityID" />
+    </Key>
+    <Property Name="SubActivityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubActivity" Type="varchar" MaxLength="200" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblTrackingInfo">
+    <Key>
+      <PropertyRef Name="TrackerNumber" />
+    </Key>
+    <Property Name="TrackerNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="User_Name" Type="varchar" MaxLength="50" />
+    <Property Name="PPM_No" Type="varchar" MaxLength="50" />
+    <Property Name="Application_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Project_Name" Type="varchar" MaxLength="50" />
+    <Property Name="CR_Type" Type="varchar" MaxLength="10" />
+    <Property Name="Activity_Type" Type="int" />
+    <Property Name="Sub_Activity_Type" Type="int" />
+    <Property Name="Start_Time" Type="varchar" MaxLength="50" />
+    <Property Name="End_Time" Type="varchar" MaxLength="50" />
+    <Property Name="Actual_Time" Type="varchar" MaxLength="10" />
+    <Property Name="Comments" Type="varchar" MaxLength="1000" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'QC.dbo.UserInformation' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="UserInformation">
+          <Property Name="username" Type="varchar" MaxLength="200" />
+          <Property Name="password" Type="varchar" MaxLength="200" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+error 6004: The table 'QC.dbo.tblActivitySubActivity_xref' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_tblActivitySubActivity_xref_tblActivityType" />-->
+  <!--Errors Found During Generation:
+error 6004: The table 'QC.dbo.tblActivitySubActivity_xref' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_tblActivitySubActivity_xref_tblSubActivityType" />-->
+  <Association Name="FK_tblMSATrackingInfo_tblActivityType">
+    <End Role="tblActivityType" Type="Self.tblActivityType" Multiplicity="0..1" />
+    <End Role="tblMSATrackingInfo" Type="Self.tblMSATrackingInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblActivityType">
+        <PropertyRef Name="ActivityTypeID" />
+      </Principal>
+      <Dependent Role="tblMSATrackingInfo">
+        <PropertyRef Name="ActivityTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMSATrackingInfo_tblApplications">
+    <End Role="tblApplications" Type="Self.tblApplications" Multiplicity="0..1" />
+    <End Role="tblMSATrackingInfo" Type="Self.tblMSATrackingInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblApplications">
+        <PropertyRef Name="ApplicationID" />
+      </Principal>
+      <Dependent Role="tblMSATrackingInfo">
+        <PropertyRef Name="ApplicationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMSATrackingInfo_tblServiceNowCategory">
+    <End Role="tblServiceNowCategory" Type="Self.tblServiceNowCategory" Multiplicity="0..1" />
+    <End Role="tblMSATrackingInfo" Type="Self.tblMSATrackingInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblServiceNowCategory">
+        <PropertyRef Name="ServiceNowCategoryID" />
+      </Principal>
+      <Dependent Role="tblMSATrackingInfo">
+        <PropertyRef Name="ServiceNowCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMSATrackingInfo_tblSubActivityType">
+    <End Role="tblSubActivityType" Type="Self.tblSubActivityType" Multiplicity="0..1" />
+    <End Role="tblMSATrackingInfo" Type="Self.tblMSATrackingInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSubActivityType">
+        <PropertyRef Name="SubActivityID" />
+      </Principal>
+      <Dependent Role="tblMSATrackingInfo">
+        <PropertyRef Name="SubActivityTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="BindEmpGrid_Sp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="deleteEmployeeInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SAPID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="HM_GetHMDashboardInCompTasks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="HM_GetHMDashboardStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="HM_GetHMTasks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="HM_SaveHMTasks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pHMID" Type="int" Mode="In" />
+    <Parameter Name="pEfforts" Type="varchar" Mode="In" />
+    <Parameter Name="pUpdatedBy" Type="varchar" Mode="In" />
+    <Parameter Name="pSource" Type="char" Mode="In" />
+    <Parameter Name="pStatus" Type="char" Mode="In" />
+    <Parameter Name="pComments" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="MissingMSAEntries" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="MonthlyWSR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="MSA_GetApplications" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="MSA_GetServiceNowCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="procServiceNowEntries_Dummy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="procUDTHMTask_Dummy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="QC_DeleteDailyTracker" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pTrackerNumber" Type="int" Mode="In" />
+  </Function>
+  <Function Name="QC_DeleteMSADailyTracker" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pTrackerNumber" Type="int" Mode="In" />
+  </Function>
+  <Function Name="QC_DeleteRRTracker" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pTrackerNumber" Type="int" Mode="In" />
+  </Function>
+  <Function Name="QC_GetActivitySubActivities" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pActivityTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="QC_GetActivityType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="QC_GetDailyTracker" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pUserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="QC_GetHMTasks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="QC_GetMSADailyTracker" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pUserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="QC_GetMSADailyTracker_Test" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pUserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="QC_GetMSAFullDump" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="QC_GetRRTracker" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pUserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="QC_SaveDailyTracker" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pDate" Type="date" Mode="In" />
+    <Parameter Name="pUserName" Type="varchar" Mode="In" />
+    <Parameter Name="pPPM" Type="varchar" Mode="In" />
+    <Parameter Name="pAppName" Type="varchar" Mode="In" />
+    <Parameter Name="pProjName" Type="varchar" Mode="In" />
+    <Parameter Name="pCR" Type="varchar" Mode="In" />
+    <Parameter Name="pActivity" Type="int" Mode="In" />
+    <Parameter Name="pSubActivity" Type="int" Mode="In" />
+    <Parameter Name="pStartTime" Type="varchar" Mode="In" />
+    <Parameter Name="pEndTime" Type="varchar" Mode="In" />
+    <Parameter Name="pTimeSpent" Type="varchar" Mode="In" />
+    <Parameter Name="pComments" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="QC_SaveMSADailyTracker" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pDate" Type="date" Mode="In" />
+    <Parameter Name="pUserName" Type="varchar" Mode="In" />
+    <Parameter Name="pApplicationID" Type="int" Mode="In" />
+    <Parameter Name="pServiceNowCategoryID" Type="int" Mode="In" />
+    <Parameter Name="pServiceNowNumber" Type="varchar" Mode="In" />
+    <Parameter Name="pActivityID" Type="int" Mode="In" />
+    <Parameter Name="pSubActivityID" Type="int" Mode="In" />
+    <Parameter Name="pStartTime" Type="varchar" Mode="In" />
+    <Parameter Name="pEndTime" Type="varchar" Mode="In" />
+    <Parameter Name="pTimeSpent" Type="varchar" Mode="In" />
+    <Parameter Name="pComments" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="QC_SaveMSADailyTracker_Test" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pDate" Type="date" Mode="In" />
+    <Parameter Name="pUserName" Type="varchar" Mode="In" />
+    <Parameter Name="pApplicationID" Type="int" Mode="In" />
+    <Parameter Name="pServiceNowCategoryID" Type="int" Mode="In" />
+    <Parameter Name="pServiceNowNumber" Type="varchar" Mode="In" />
+    <Parameter Name="pActivityID" Type="int" Mode="In" />
+    <Parameter Name="pSubActivityID" Type="int" Mode="In" />
+    <Parameter Name="pStartTime" Type="varchar" Mode="In" />
+    <Parameter Name="pEndTime" Type="varchar" Mode="In" />
+    <Parameter Name="pTimeSpent" Type="varchar" Mode="In" />
+    <Parameter Name="pComments" Type="varchar" Mode="In" />
+    <Parameter Name="pIsKedb" Type="bit" Mode="In" />
+    <Parameter Name="pKedbLocation" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="QC_SavetblResponseRecoveryTracker" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pServiceNowNumber" Type="varchar" Mode="In" />
+    <Parameter Name="pApplicationID" Type="int" Mode="In" />
+    <Parameter Name="pAssignmentDate" Type="datetime" Mode="In" />
+    <Parameter Name="pResponseDate" Type="datetime" Mode="In" />
+    <Parameter Name="pRecoveryDate" Type="datetime" Mode="In" />
+    <Parameter Name="pIsKedb" Type="bit" Mode="In" />
+    <Parameter Name="pKedbLocation" Type="varchar" Mode="In" />
+    <Parameter Name="pUserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="QC_UpdateDailyTracker" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pTrackerNumber" Type="int" Mode="In" />
+    <Parameter Name="pDate" Type="date" Mode="In" />
+    <Parameter Name="pUserName" Type="varchar" Mode="In" />
+    <Parameter Name="pPPM" Type="varchar" Mode="In" />
+    <Parameter Name="pAppName" Type="varchar" Mode="In" />
+    <Parameter Name="pProjName" Type="varchar" Mode="In" />
+    <Parameter Name="pCR" Type="varchar" Mode="In" />
+    <Parameter Name="pActivity" Type="int" Mode="In" />
+    <Parameter Name="pSubActivity" Type="int" Mode="In" />
+    <Parameter Name="pStartTime" Type="varchar" Mode="In" />
+    <Parameter Name="pEndTime" Type="varchar" Mode="In" />
+    <Parameter Name="pTimeSpent" Type="varchar" Mode="In" />
+    <Parameter Name="pComments" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="QC_UpdateMSADailyTracker" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pTrackerNumber" Type="int" Mode="In" />
+    <Parameter Name="pDate" Type="date" Mode="In" />
+    <Parameter Name="pUserName" Type="varchar" Mode="In" />
+    <Parameter Name="pApplicationID" Type="int" Mode="In" />
+    <Parameter Name="pServiceNowCategoryID" Type="int" Mode="In" />
+    <Parameter Name="pServiceNowNumber" Type="varchar" Mode="In" />
+    <Parameter Name="pActivityID" Type="int" Mode="In" />
+    <Parameter Name="pSubActivityID" Type="int" Mode="In" />
+    <Parameter Name="pStartTime" Type="varchar" Mode="In" />
+    <Parameter Name="pEndTime" Type="varchar" Mode="In" />
+    <Parameter Name="pTimeSpent" Type="varchar" Mode="In" />
+    <Parameter Name="pComments" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="QC_UpdateRRTracker" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pTrackerNumber" Type="int" Mode="In" />
+    <Parameter Name="pServiceNowNumber" Type="varchar" Mode="In" />
+    <Parameter Name="pApplicationID" Type="int" Mode="In" />
+    <Parameter Name="pAssignmentDate" Type="datetime" Mode="In" />
+    <Parameter Name="pResponseDate" Type="datetime" Mode="In" />
+    <Parameter Name="pRecoveryDate" Type="datetime" Mode="In" />
+    <Parameter Name="pIsKedb" Type="bit" Mode="In" />
+    <Parameter Name="pKedbLocation" Type="varchar" Mode="In" />
+    <Parameter Name="pUserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SaveDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SAPID" Type="int" Mode="In" />
+    <Parameter Name="EmpName" Type="varchar" Mode="In" />
+    <Parameter Name="ODCLanID" Type="varchar" Mode="In" />
+    <Parameter Name="ODCMailID" Type="varchar" Mode="In" />
+    <Parameter Name="HCLLanID" Type="varchar" Mode="In" />
+    <Parameter Name="HCLMailID" Type="varchar" Mode="In" />
+    <Parameter Name="AIGLanID" Type="varchar" Mode="In" />
+    <Parameter Name="AIGMailID" Type="varchar" Mode="In" />
+    <Parameter Name="AIGFullName" Type="varchar" Mode="In" />
+    <Parameter Name="RMSapID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SearchEmpRecords_Sp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SearchBy" Type="varchar" Mode="In" />
+    <Parameter Name="SearchVal" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="QCModelStoreContainer">
+    <EntitySet Name="tblActivityType" EntityType="Self.tblActivityType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblApplications" EntityType="Self.tblApplications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppMonitorFrequecy" EntityType="Self.tblAppMonitorFrequecy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDailyTaskScheduler" EntityType="Self.tblDailyTaskScheduler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblHMRunMaster" EntityType="Self.tblHMRunMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblHMTasks" EntityType="Self.tblHMTasks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblHMTasks1" EntityType="Self.tblHMTasks1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblHMTasks2" EntityType="Self.tblHMTasks2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblHMUsers" EntityType="Self.tblHMUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMSATrackingInfo" EntityType="Self.tblMSATrackingInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblResponseRecoveryInfo" EntityType="Self.tblResponseRecoveryInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblScheduleMaster" EntityType="Self.tblScheduleMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblServiceNowCategory" EntityType="Self.tblServiceNowCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSubActivityType" EntityType="Self.tblSubActivityType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblTrackingInfo" EntityType="Self.tblTrackingInfo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tblMSATrackingInfo_tblActivityType" Association="Self.FK_tblMSATrackingInfo_tblActivityType">
+      <End Role="tblActivityType" EntitySet="tblActivityType" />
+      <End Role="tblMSATrackingInfo" EntitySet="tblMSATrackingInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMSATrackingInfo_tblApplications" Association="Self.FK_tblMSATrackingInfo_tblApplications">
+      <End Role="tblApplications" EntitySet="tblApplications" />
+      <End Role="tblMSATrackingInfo" EntitySet="tblMSATrackingInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMSATrackingInfo_tblServiceNowCategory" Association="Self.FK_tblMSATrackingInfo_tblServiceNowCategory">
+      <End Role="tblServiceNowCategory" EntitySet="tblServiceNowCategory" />
+      <End Role="tblMSATrackingInfo" EntitySet="tblMSATrackingInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMSATrackingInfo_tblSubActivityType" Association="Self.FK_tblMSATrackingInfo_tblSubActivityType">
+      <End Role="tblSubActivityType" EntitySet="tblSubActivityType" />
+      <End Role="tblMSATrackingInfo" EntitySet="tblMSATrackingInfo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

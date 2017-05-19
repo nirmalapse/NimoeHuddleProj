@@ -1,0 +1,244 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@model IEnumerable<Huddle.Models.HuddleModel>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HuddleDashboard</title>
+    @Styles.Render("~/Content/css");
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/AngularJs")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var pathname = window.location.pathname; // Returns path only
+            var url = window.location.href;
+           // alert(pathname + "\n" + url)
+            // alert("hi");
+            //CallWebPageMethod("http://localhost:51294/Huddle/", "getdata", ValidateLoginSuccess, failure);
+
+        });
+        //function ValidateLoginSuccess(data) {
+        //    alert('1');
+        //}
+
+        //function failure(data) {
+        //}
+        //angular.module('bindGripApp', []).controller('bindGrip', function ($scope, $http) {
+        //    $scope.ProductList = null;
+        //    //Declaring the function to load data from database
+
+        //    $scope.fillProductList = function () {
+        //        $http({
+        //            method: 'POST',
+        //            url: '/Huddle/getdata',
+        //            data: {}
+        //        }).success(function (result) {
+        //            debugger;
+        //            alert(result.d);
+        //            $scope.ProductList = result.d;
+        //        });
+        //    };
+        //    //Calling the function to load the data on pageload
+        //    alert('');
+        //    $scope.fillProductList();
+        //});
+
+        //var myApp = angular.module("bindGripApp", []);
+
+        //(function (app) {
+        //    "use strict";
+        //    app.controller("HuddleController", function ($scope, $http) {
+        //        $http.get('/Huddle/getdata').then(function (prd) {
+        //            alert('got in');
+        //            $scope.prd = prd.data;
+        //        });
+        //    });
+        //})(myApp);
+
+        //var myapp = angular.module('myApp', []);
+        //myapp.controller('control', function ($scope, $http) {
+        //    $http({
+        //        url: "/Huddle/getdata",
+        //        dataType: 'json',
+        //        method: 'get',
+        //        data: '',
+        //        headers: {
+        //            "Content-Type": "application/json"
+        //        }
+        //    }).success(function (response) {
+        //        alert('in');
+        //        $scope.value = response.d;
+        //    })
+        //    .error(function (error) {
+        //        alert(error);
+        //    });
+        //});
+        //(function () {
+        //    'use strict';
+        //    var myApp = angular.module("myApp", []);
+
+        //        app.controller("control", function ($scope, $http) {
+        //            $http.get('http://localhost:51294/Huddle/getdata').then(function (prd) {
+        //                alert('22');
+        //                $scope.prd = prd.data;
+        //            });
+        //        });
+        //});
+
+
+
+        //        var bindGripApp = angular.module("bindGripApp", []);
+
+        //bindGripApp.controller("bindGrip", function ($scope, $http) {
+        //    $http.get('http://localhost:51294/Huddle/getdata').then(function (prd) {
+        //        //  alert(prd);
+        //        debugger;
+        //        $scope.ProductList = prd.data;
+        //    });
+        //});
+
+        //  var myapp = angular.module("myapp", []);
+        //myapp.controller("DataSorce", function ($scope) {
+        //    $scope.firstNamme = "MS";
+        //    $scope.lastName = "Dhoni";
+        //});
+
+        //angular.module('myapp', []).controller("DataSorce", function ($scope) {
+        //    $scope.firstNamme = "MS";
+        //    $scope.lastName = "Dhoni";
+        //});
+
+        //  var myapp = angular.module('myApp', []);
+        //bindGripApp.controller('bindGrip', function ($scope, $http) {
+        //    $http({
+        //        url: "http://localhost:51294/Huddle/getdata",
+        //        dataType: 'json',
+        //        method: 'get',
+        //        data: '',
+        //        headers: {
+        //            "Content-Type": "application/json"
+        //        }
+        //    }).success(function (response) {
+        //        alert('in');
+        //        $scope.value = response.d;
+        //    })
+        //    .error(function (error) {
+        //        alert(error);
+        //    });
+        //});
+        angular.module("myapp", [])
+        .controller("MyController", function ($scope, $http) {
+            //$scope.myData = l
+
+            //$http.post('http://localhost:51294/Huddle/getdata', { data: {} })
+            //.success(function (data, status, headers, config) {
+            //    $scope.ProductList = data.d;
+            //})
+            //.error(function (data, status, headers, config) {
+            //    $scope.status = status;
+            //});
+            $http({
+                method: 'GET',
+                url: 'http://localhost:51294/Huddle/getdata'
+            }).then(function successCallback(response) {
+                //alert(response.data);
+                $scope.ProductList = response.data;
+            }, function errorCallback(response) {
+                alert("error " + response.d);
+
+            });
+
+
+
+        }).config(function ($httpProvider) {
+
+            $httpProvider.defaults.headers.post = {};
+
+            $httpProvider.defaults.headers.post["Content-Type"] = "application/json; charset=utf-8";
+
+        });
+    </script>
+
+
+</head>
+<body>
+    <div>
+
+    </div><br />
+    @*First Name: <input type="text" ng-model="fname" /> <br />
+        Last Names: <input type="text" ng-model="lname" /> <br />
+        Result: {{fname +' '+ lname}}*@
+    <br\>
+        <div ng-app="myapp">
+            <div ng-controller="MyController">
+                <table class="table table-striped table-bordered table-hover table-checkable datatable">
+                    <thead class="grid-top-panel">
+                        <tr>
+                            <th>StudentID</th>
+                            <th>First Name</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="dataModel in ProductList">
+                            <td>{{dataModel.ID}}</td>
+                            <td>{{dataModel.Name}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <ul ng-repeat="dataModel in ProductList">
+                    <li> {{dataModel.ID}}</li>
+                    <li> {{dataModel.Name}}</li>
+                </ul>
+            </div>
+        </div>
+        @*<div  ng-controller="control">
+                <span ng-bind="value"></span>
+            </div>*@
+        <div ng-controller="bindGrip" ng-app="bindGripApp">
+            @*<ul>
+                    <li> {{firstNamme}}</li>
+                    <li>                {{lastName}}</li>
+                </ul>*@
+
+
+        </div>
+
+
+        <table class="table table-bordered datatable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var HuddleModel in Model )
+                {
+                    <tr>
+                        <th scope="row">@HuddleModel.ID</th>
+                        <td>@HuddleModel.Name</td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @*<ul ng-repeat="dataModel in ProductList">
+            <li> {{dataModel.ID}}</li>
+            <li> {{dataModel.Name}}</li>
+        </ul>
+        @Html.DisplayForModel(model => model.ID)*@
+
+</body>
+</html>

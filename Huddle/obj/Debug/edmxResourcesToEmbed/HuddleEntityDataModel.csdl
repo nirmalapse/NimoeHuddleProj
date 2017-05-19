@@ -1,0 +1,677 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblActivityType">
+    <Key>
+      <PropertyRef Name="ActivityTypeID" />
+    </Key>
+    <Property Name="ActivityTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActivityType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="tblMSATrackingInfoes" Relationship="Self.FK_tblMSATrackingInfo_tblActivityType" FromRole="tblActivityType" ToRole="tblMSATrackingInfo" />
+  </EntityType>
+  <EntityType Name="tblApplication">
+    <Key>
+      <PropertyRef Name="ApplicationID" />
+    </Key>
+    <Property Name="ApplicationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Application" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Scope" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Grid" Type="Int32" />
+    <Property Name="Category" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FSLName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HCLCSM" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="OffLeadSAPID" Type="Int32" />
+    <NavigationProperty Name="tblMSATrackingInfoes" Relationship="Self.FK_tblMSATrackingInfo_tblApplications" FromRole="tblApplications" ToRole="tblMSATrackingInfo" />
+  </EntityType>
+  <EntityType Name="tblAppMonitorFrequecy">
+    <Key>
+      <PropertyRef Name="FreqeuncyID" />
+    </Key>
+    <Property Name="FreqeuncyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HMID" Type="Int32" />
+    <Property Name="ApplicationID" Type="Int32" />
+    <Property Name="Mon" Type="Boolean" />
+    <Property Name="Tue" Type="Boolean" />
+    <Property Name="Wed" Type="Boolean" />
+    <Property Name="Thu" Type="Boolean" />
+    <Property Name="Fri" Type="Boolean" />
+    <Property Name="Sat" Type="Boolean" />
+    <Property Name="Sun" Type="Boolean" />
+    <Property Name="IsDaily" Type="Boolean" />
+    <Property Name="IsEveryWeek" Type="Boolean" />
+    <Property Name="IsMonthly" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tblDailyTaskScheduler">
+    <Key>
+      <PropertyRef Name="TaskScheduleID" />
+    </Key>
+    <Property Name="TaskScheduleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FreqeuncyID" Type="Int32" />
+    <Property Name="HMID" Type="Int32" />
+    <Property Name="ScheduledDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="tblHMRunMaster">
+    <Key>
+      <PropertyRef Name="RunID" />
+    </Key>
+    <Property Name="RunID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tblHMTask">
+    <Key>
+      <PropertyRef Name="HMID" />
+    </Key>
+    <Property Name="HMID" Type="Int32" Nullable="false" />
+    <Property Name="HMActivityID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ApplicationName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="FSL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ServiceLevel" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MonitoringStartTime" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MonitoringEndTime" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="TimeSlot" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Frequency" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Recurrence" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ActivityCategory" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ActivityDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblHMTasks1">
+    <Key>
+      <PropertyRef Name="HMID" />
+    </Key>
+    <Property Name="HMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HMActivityID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ApplicationName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FSL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ServiceLevel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MonitoringStartTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MonitoringEndTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TimeSlot" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TimeSlotIST" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Frequency" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Recurrence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ActivityCategory" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ActivityDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="FollowupAction" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsSelfTaskCreated" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="REQNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ResourceSAPID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BckResourceSAPID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LeadSAPID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IsNotifyAIG" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblHMTasks2">
+    <Key>
+      <PropertyRef Name="HMID" />
+    </Key>
+    <Property Name="HMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HMActivityID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ApplicationName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FSL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ServiceLevel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MonitoringStartTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MonitoringEndTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TimeSlot" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TimeSlotIST" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Frequency" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Recurrence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ActivityCategory" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ActivityDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="FollowupAction" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsSelfTaskCreated" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="REQNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EffortsInMin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ResourceSAPID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BckResourceSAPID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LeadSAPID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IsNotifyAIG" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AIG_Resources" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RunID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblHMUser">
+    <Key>
+      <PropertyRef Name="HMUserTranID" />
+    </Key>
+    <Property Name="HMUserTranID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HMID" Type="Int32" />
+    <Property Name="Efforts" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDateTimeIST" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedDateTimeCST" Type="DateTime" Precision="0" />
+    <Property Name="Source" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Comments" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" />
+    <Property Name="ActualH_MDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="tblMSATrackingInfo">
+    <Key>
+      <PropertyRef Name="MSATrackerNumber" />
+    </Key>
+    <Property Name="MSATrackerNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="User_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="ApplicationID" Type="Int32" />
+    <Property Name="ServiceNowCategoryID" Type="Int32" />
+    <Property Name="ServiceNowNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ActivityTypeID" Type="Int32" />
+    <Property Name="SubActivityTypeID" Type="Int32" />
+    <Property Name="StartTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EndTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ActualTime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Comments" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="IsKeDB" Type="Boolean" />
+    <Property Name="Kedb" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblActivityType" Relationship="Self.FK_tblMSATrackingInfo_tblActivityType" FromRole="tblMSATrackingInfo" ToRole="tblActivityType" />
+    <NavigationProperty Name="tblApplication" Relationship="Self.FK_tblMSATrackingInfo_tblApplications" FromRole="tblMSATrackingInfo" ToRole="tblApplications" />
+    <NavigationProperty Name="tblServiceNowCategory" Relationship="Self.FK_tblMSATrackingInfo_tblServiceNowCategory" FromRole="tblMSATrackingInfo" ToRole="tblServiceNowCategory" />
+    <NavigationProperty Name="tblSubActivityType" Relationship="Self.FK_tblMSATrackingInfo_tblSubActivityType" FromRole="tblMSATrackingInfo" ToRole="tblSubActivityType" />
+  </EntityType>
+  <EntityType Name="tblResponseRecoveryInfo">
+    <Key>
+      <PropertyRef Name="ResponseRecoveryID" />
+    </Key>
+    <Property Name="ResponseRecoveryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ApplicationID" Type="Int32" />
+    <Property Name="AssignmentDate" Type="DateTime" Precision="0" />
+    <Property Name="ResponseTime" Type="DateTime" Precision="0" />
+    <Property Name="RecoveryTime" Type="DateTime" Precision="0" />
+    <Property Name="IsKeDB" Type="Boolean" />
+    <Property Name="KedbLocation" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblScheduleMaster">
+    <Key>
+      <PropertyRef Name="RunScheduleID" />
+    </Key>
+    <Property Name="RunScheduleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="IsHoliday" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tblServiceNowCategory">
+    <Key>
+      <PropertyRef Name="ServiceNowCategoryID" />
+    </Key>
+    <Property Name="ServiceNowCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceNowCategory" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="ServiceNowGroup" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="tblMSATrackingInfoes" Relationship="Self.FK_tblMSATrackingInfo_tblServiceNowCategory" FromRole="tblServiceNowCategory" ToRole="tblMSATrackingInfo" />
+  </EntityType>
+  <EntityType Name="tblSubActivityType">
+    <Key>
+      <PropertyRef Name="SubActivityID" />
+    </Key>
+    <Property Name="SubActivityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubActivity" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="tblMSATrackingInfoes" Relationship="Self.FK_tblMSATrackingInfo_tblSubActivityType" FromRole="tblSubActivityType" ToRole="tblMSATrackingInfo" />
+  </EntityType>
+  <EntityType Name="tblTrackingInfo">
+    <Key>
+      <PropertyRef Name="TrackerNumber" />
+    </Key>
+    <Property Name="TrackerNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PPM_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Application_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Project_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CR_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Activity_Type" Type="Int32" />
+    <Property Name="Sub_Activity_Type" Type="Int32" />
+    <Property Name="Start_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="End_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Actual_Time" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Comments" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK_tblMSATrackingInfo_tblActivityType">
+    <End Role="tblActivityType" Type="Self.tblActivityType" Multiplicity="0..1" />
+    <End Role="tblMSATrackingInfo" Type="Self.tblMSATrackingInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblActivityType">
+        <PropertyRef Name="ActivityTypeID" />
+      </Principal>
+      <Dependent Role="tblMSATrackingInfo">
+        <PropertyRef Name="ActivityTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMSATrackingInfo_tblApplications">
+    <End Role="tblApplications" Type="Self.tblApplication" Multiplicity="0..1" />
+    <End Role="tblMSATrackingInfo" Type="Self.tblMSATrackingInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblApplications">
+        <PropertyRef Name="ApplicationID" />
+      </Principal>
+      <Dependent Role="tblMSATrackingInfo">
+        <PropertyRef Name="ApplicationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMSATrackingInfo_tblServiceNowCategory">
+    <End Role="tblServiceNowCategory" Type="Self.tblServiceNowCategory" Multiplicity="0..1" />
+    <End Role="tblMSATrackingInfo" Type="Self.tblMSATrackingInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblServiceNowCategory">
+        <PropertyRef Name="ServiceNowCategoryID" />
+      </Principal>
+      <Dependent Role="tblMSATrackingInfo">
+        <PropertyRef Name="ServiceNowCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMSATrackingInfo_tblSubActivityType">
+    <End Role="tblSubActivityType" Type="Self.tblSubActivityType" Multiplicity="0..1" />
+    <End Role="tblMSATrackingInfo" Type="Self.tblMSATrackingInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSubActivityType">
+        <PropertyRef Name="SubActivityID" />
+      </Principal>
+      <Dependent Role="tblMSATrackingInfo">
+        <PropertyRef Name="SubActivityTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QCEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblActivityTypes" EntityType="Self.tblActivityType" />
+    <EntitySet Name="tblApplications" EntityType="Self.tblApplication" />
+    <EntitySet Name="tblAppMonitorFrequecies" EntityType="Self.tblAppMonitorFrequecy" />
+    <EntitySet Name="tblDailyTaskSchedulers" EntityType="Self.tblDailyTaskScheduler" />
+    <EntitySet Name="tblHMRunMasters" EntityType="Self.tblHMRunMaster" />
+    <EntitySet Name="tblHMTasks" EntityType="Self.tblHMTask" />
+    <EntitySet Name="tblHMTasks1" EntityType="Self.tblHMTasks1" />
+    <EntitySet Name="tblHMTasks2" EntityType="Self.tblHMTasks2" />
+    <EntitySet Name="tblHMUsers" EntityType="Self.tblHMUser" />
+    <EntitySet Name="tblMSATrackingInfoes" EntityType="Self.tblMSATrackingInfo" />
+    <EntitySet Name="tblResponseRecoveryInfoes" EntityType="Self.tblResponseRecoveryInfo" />
+    <EntitySet Name="tblScheduleMasters" EntityType="Self.tblScheduleMaster" />
+    <EntitySet Name="tblServiceNowCategories" EntityType="Self.tblServiceNowCategory" />
+    <EntitySet Name="tblSubActivityTypes" EntityType="Self.tblSubActivityType" />
+    <EntitySet Name="tblTrackingInfoes" EntityType="Self.tblTrackingInfo" />
+    <AssociationSet Name="FK_tblMSATrackingInfo_tblActivityType" Association="Self.FK_tblMSATrackingInfo_tblActivityType">
+      <End Role="tblActivityType" EntitySet="tblActivityTypes" />
+      <End Role="tblMSATrackingInfo" EntitySet="tblMSATrackingInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMSATrackingInfo_tblApplications" Association="Self.FK_tblMSATrackingInfo_tblApplications">
+      <End Role="tblApplications" EntitySet="tblApplications" />
+      <End Role="tblMSATrackingInfo" EntitySet="tblMSATrackingInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMSATrackingInfo_tblServiceNowCategory" Association="Self.FK_tblMSATrackingInfo_tblServiceNowCategory">
+      <End Role="tblServiceNowCategory" EntitySet="tblServiceNowCategories" />
+      <End Role="tblMSATrackingInfo" EntitySet="tblMSATrackingInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMSATrackingInfo_tblSubActivityType" Association="Self.FK_tblMSATrackingInfo_tblSubActivityType">
+      <End Role="tblSubActivityType" EntitySet="tblSubActivityTypes" />
+      <End Role="tblMSATrackingInfo" EntitySet="tblMSATrackingInfoes" />
+    </AssociationSet>
+    <FunctionImport Name="BindEmpGrid_Sp" ReturnType="Collection(QCModel.BindEmpGrid_Sp_Result)" />
+    <FunctionImport Name="deleteEmployeeInfo">
+      <Parameter Name="SAPID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="HM_GetHMDashboardInCompTasks" ReturnType="Collection(QCModel.HM_GetHMDashboardInCompTasks_Result)" />
+    <FunctionImport Name="HM_GetHMDashboardStatus" ReturnType="Collection(QCModel.HM_GetHMDashboardStatus_Result)" />
+    <FunctionImport Name="HM_GetHMTasks" ReturnType="Collection(QCModel.HM_GetHMTasks_Result)" />
+    <FunctionImport Name="HM_SaveHMTasks" ReturnType="Collection(Int32)">
+      <Parameter Name="pHMID" Mode="In" Type="Int32" />
+      <Parameter Name="pEfforts" Mode="In" Type="String" />
+      <Parameter Name="pUpdatedBy" Mode="In" Type="String" />
+      <Parameter Name="pSource" Mode="In" Type="String" />
+      <Parameter Name="pStatus" Mode="In" Type="String" />
+      <Parameter Name="pComments" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="MissingMSAEntries" ReturnType="Collection(QCModel.MissingMSAEntries_Result)" />
+    <FunctionImport Name="MonthlyWSR" ReturnType="Collection(QCModel.MonthlyWSR_Result)" />
+    <FunctionImport Name="MSA_GetApplications" ReturnType="Collection(QCModel.MSA_GetApplications_Result)" />
+    <FunctionImport Name="MSA_GetServiceNowCategory" ReturnType="Collection(QCModel.MSA_GetServiceNowCategory_Result)" />
+    <FunctionImport Name="procServiceNowEntries_Dummy" />
+    <FunctionImport Name="procUDTHMTask_Dummy" />
+    <FunctionImport Name="QC_DeleteDailyTracker">
+      <Parameter Name="pTrackerNumber" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="QC_DeleteMSADailyTracker">
+      <Parameter Name="pTrackerNumber" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="QC_DeleteRRTracker">
+      <Parameter Name="pTrackerNumber" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="QC_GetActivitySubActivities" ReturnType="Collection(QCModel.QC_GetActivitySubActivities_Result)">
+      <Parameter Name="pActivityTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="QC_GetActivityType" ReturnType="Collection(QCModel.QC_GetActivityType_Result)" />
+    <FunctionImport Name="QC_GetDailyTracker" ReturnType="Collection(QCModel.QC_GetDailyTracker_Result)">
+      <Parameter Name="pUserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="QC_GetHMTasks" ReturnType="Collection(QCModel.QC_GetHMTasks_Result)" />
+    <FunctionImport Name="QC_GetMSADailyTracker" ReturnType="Collection(QCModel.QC_GetMSADailyTracker_Result)">
+      <Parameter Name="pUserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="QC_GetMSADailyTracker_Test" ReturnType="Collection(QCModel.QC_GetMSADailyTracker_Test_Result)">
+      <Parameter Name="pUserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="QC_GetMSAFullDump" ReturnType="Collection(QCModel.QC_GetMSAFullDump_Result)" />
+    <FunctionImport Name="QC_GetRRTracker" ReturnType="Collection(QCModel.QC_GetRRTracker_Result)">
+      <Parameter Name="pUserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="QC_SaveDailyTracker">
+      <Parameter Name="pDate" Mode="In" Type="DateTime" />
+      <Parameter Name="pUserName" Mode="In" Type="String" />
+      <Parameter Name="pPPM" Mode="In" Type="String" />
+      <Parameter Name="pAppName" Mode="In" Type="String" />
+      <Parameter Name="pProjName" Mode="In" Type="String" />
+      <Parameter Name="pCR" Mode="In" Type="String" />
+      <Parameter Name="pActivity" Mode="In" Type="Int32" />
+      <Parameter Name="pSubActivity" Mode="In" Type="Int32" />
+      <Parameter Name="pStartTime" Mode="In" Type="String" />
+      <Parameter Name="pEndTime" Mode="In" Type="String" />
+      <Parameter Name="pTimeSpent" Mode="In" Type="String" />
+      <Parameter Name="pComments" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="QC_SaveMSADailyTracker">
+      <Parameter Name="pDate" Mode="In" Type="DateTime" />
+      <Parameter Name="pUserName" Mode="In" Type="String" />
+      <Parameter Name="pApplicationID" Mode="In" Type="Int32" />
+      <Parameter Name="pServiceNowCategoryID" Mode="In" Type="Int32" />
+      <Parameter Name="pServiceNowNumber" Mode="In" Type="String" />
+      <Parameter Name="pActivityID" Mode="In" Type="Int32" />
+      <Parameter Name="pSubActivityID" Mode="In" Type="Int32" />
+      <Parameter Name="pStartTime" Mode="In" Type="String" />
+      <Parameter Name="pEndTime" Mode="In" Type="String" />
+      <Parameter Name="pTimeSpent" Mode="In" Type="String" />
+      <Parameter Name="pComments" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="QC_SaveMSADailyTracker_Test">
+      <Parameter Name="pDate" Mode="In" Type="DateTime" />
+      <Parameter Name="pUserName" Mode="In" Type="String" />
+      <Parameter Name="pApplicationID" Mode="In" Type="Int32" />
+      <Parameter Name="pServiceNowCategoryID" Mode="In" Type="Int32" />
+      <Parameter Name="pServiceNowNumber" Mode="In" Type="String" />
+      <Parameter Name="pActivityID" Mode="In" Type="Int32" />
+      <Parameter Name="pSubActivityID" Mode="In" Type="Int32" />
+      <Parameter Name="pStartTime" Mode="In" Type="String" />
+      <Parameter Name="pEndTime" Mode="In" Type="String" />
+      <Parameter Name="pTimeSpent" Mode="In" Type="String" />
+      <Parameter Name="pComments" Mode="In" Type="String" />
+      <Parameter Name="pIsKedb" Mode="In" Type="Boolean" />
+      <Parameter Name="pKedbLocation" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="QC_SavetblResponseRecoveryTracker" ReturnType="Collection(Int32)">
+      <Parameter Name="pServiceNowNumber" Mode="In" Type="String" />
+      <Parameter Name="pApplicationID" Mode="In" Type="Int32" />
+      <Parameter Name="pAssignmentDate" Mode="In" Type="DateTime" />
+      <Parameter Name="pResponseDate" Mode="In" Type="DateTime" />
+      <Parameter Name="pRecoveryDate" Mode="In" Type="DateTime" />
+      <Parameter Name="pIsKedb" Mode="In" Type="Boolean" />
+      <Parameter Name="pKedbLocation" Mode="In" Type="String" />
+      <Parameter Name="pUserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="QC_UpdateDailyTracker">
+      <Parameter Name="pTrackerNumber" Mode="In" Type="Int32" />
+      <Parameter Name="pDate" Mode="In" Type="DateTime" />
+      <Parameter Name="pUserName" Mode="In" Type="String" />
+      <Parameter Name="pPPM" Mode="In" Type="String" />
+      <Parameter Name="pAppName" Mode="In" Type="String" />
+      <Parameter Name="pProjName" Mode="In" Type="String" />
+      <Parameter Name="pCR" Mode="In" Type="String" />
+      <Parameter Name="pActivity" Mode="In" Type="Int32" />
+      <Parameter Name="pSubActivity" Mode="In" Type="Int32" />
+      <Parameter Name="pStartTime" Mode="In" Type="String" />
+      <Parameter Name="pEndTime" Mode="In" Type="String" />
+      <Parameter Name="pTimeSpent" Mode="In" Type="String" />
+      <Parameter Name="pComments" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="QC_UpdateMSADailyTracker">
+      <Parameter Name="pTrackerNumber" Mode="In" Type="Int32" />
+      <Parameter Name="pDate" Mode="In" Type="DateTime" />
+      <Parameter Name="pUserName" Mode="In" Type="String" />
+      <Parameter Name="pApplicationID" Mode="In" Type="Int32" />
+      <Parameter Name="pServiceNowCategoryID" Mode="In" Type="Int32" />
+      <Parameter Name="pServiceNowNumber" Mode="In" Type="String" />
+      <Parameter Name="pActivityID" Mode="In" Type="Int32" />
+      <Parameter Name="pSubActivityID" Mode="In" Type="Int32" />
+      <Parameter Name="pStartTime" Mode="In" Type="String" />
+      <Parameter Name="pEndTime" Mode="In" Type="String" />
+      <Parameter Name="pTimeSpent" Mode="In" Type="String" />
+      <Parameter Name="pComments" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="QC_UpdateRRTracker" ReturnType="Collection(Int32)">
+      <Parameter Name="pTrackerNumber" Mode="In" Type="Int32" />
+      <Parameter Name="pServiceNowNumber" Mode="In" Type="String" />
+      <Parameter Name="pApplicationID" Mode="In" Type="Int32" />
+      <Parameter Name="pAssignmentDate" Mode="In" Type="DateTime" />
+      <Parameter Name="pResponseDate" Mode="In" Type="DateTime" />
+      <Parameter Name="pRecoveryDate" Mode="In" Type="DateTime" />
+      <Parameter Name="pIsKedb" Mode="In" Type="Boolean" />
+      <Parameter Name="pKedbLocation" Mode="In" Type="String" />
+      <Parameter Name="pUserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SaveDetails" ReturnType="Collection(Int32)">
+      <Parameter Name="SAPID" Mode="In" Type="Int32" />
+      <Parameter Name="EmpName" Mode="In" Type="String" />
+      <Parameter Name="ODCLanID" Mode="In" Type="String" />
+      <Parameter Name="ODCMailID" Mode="In" Type="String" />
+      <Parameter Name="HCLLanID" Mode="In" Type="String" />
+      <Parameter Name="HCLMailID" Mode="In" Type="String" />
+      <Parameter Name="AIGLanID" Mode="In" Type="String" />
+      <Parameter Name="AIGMailID" Mode="In" Type="String" />
+      <Parameter Name="AIGFullName" Mode="In" Type="String" />
+      <Parameter Name="RMSapID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SearchEmpRecords_Sp" ReturnType="Collection(QCModel.SearchEmpRecords_Sp_Result)">
+      <Parameter Name="SearchBy" Mode="In" Type="String" />
+      <Parameter Name="SearchVal" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="BindEmpGrid_Sp_Result">
+    <Property Type="Int32" Name="SAPID" Nullable="true" />
+    <Property Type="String" Name="EmployeeName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="ODCLanID" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ODCMailID" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="HCLLANID" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="HCLMailID" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="AIGLANID" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="AIGMailID" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="AIGFullName" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="RMSAPID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="HM_GetHMDashboardInCompTasks_Result">
+    <Property Type="String" Name="HMActivityID" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ApplicationName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TimeSlot" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="EmployeeName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Comments" Nullable="false" MaxLength="2500" />
+  </ComplexType>
+  <ComplexType Name="HM_GetHMDashboardStatus_Result">
+    <Property Type="Int32" Name="TotalTasks" Nullable="true" />
+    <Property Type="Int32" Name="Completed" Nullable="true" />
+    <Property Type="Int32" Name="InCompleted" Nullable="true" />
+    <Property Type="Int32" Name="Untouched" Nullable="true" />
+    <Property Type="Int32" Name="Breached" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="HM_GetHMTasks_Result">
+    <Property Type="Int32" Name="HMID" Nullable="false" />
+    <Property Type="String" Name="HMActivityID" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ApplicationName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="FSL" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ServiceLevel" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MonitoringStartTime" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MonitoringEndTime" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TimeSlot" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="TimeSlotIST" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Frequency" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Recurrence" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ActivityCategory" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ActivityDescription" Nullable="true" />
+    <Property Type="String" Name="Remarks" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="FollowupAction" Nullable="true" />
+    <Property Type="String" Name="IsSelfTaskCreated" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="REQNo" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="EffortsInMin" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ResourceSAPID" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="BckResourceSAPID" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="LeadSAPID" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="IsNotifyAIG" Nullable="true" />
+    <Property Type="String" Name="AIG_Resources" Nullable="true" />
+    <Property Type="Int32" Name="RunID" Nullable="true" />
+    <Property Type="String" Name="ISTTime" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Primary" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Secondary" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="Iscompleted" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="MissingMSAEntries_Result">
+    <Property Type="String" Name="ServiceNowNumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AIGEmployeeName" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="AssignmentGroup" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="MonthlyWSR_Result">
+    <Property Type="Int32" Name="MSATrackerNumber" Nullable="true" />
+    <Property Type="String" Name="TrakerDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="User_Name" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="EmployeeSAPID" Nullable="true" />
+    <Property Type="String" Name="ServiceNowCategory" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="EmployeeName" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="ReportingManagerSAPID" Nullable="true" />
+    <Property Type="String" Name="ServiceNowNumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AIGEmployeeName" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="AssignmentGroup" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ActivityType" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="SubActivity" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Application" Nullable="true" MaxLength="250" />
+    <Property Type="Decimal" Name="Sec" Nullable="true" Precision="23" Scale="2" />
+    <Property Type="Decimal" Name="min" Nullable="true" Precision="21" Scale="2" />
+    <Property Type="Decimal" Name="hrs" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="MSA_GetApplications_Result">
+    <Property Type="Int32" Name="ApplicationID" Nullable="false" />
+    <Property Type="String" Name="Application" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="MSA_GetServiceNowCategory_Result">
+    <Property Type="Int32" Name="ServiceNowCategoryID" Nullable="false" />
+    <Property Type="String" Name="ServiceNowCategory" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="QC_GetActivitySubActivities_Result">
+    <Property Type="Int32" Name="SubActivityID" Nullable="false" />
+    <Property Type="String" Name="SubActivity" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="QC_GetActivityType_Result">
+    <Property Type="Int32" Name="ActivityTypeID" Nullable="false" />
+    <Property Type="String" Name="ActivityType" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="QC_GetDailyTracker_Result">
+    <Property Type="Int32" Name="TrackerNumber" Nullable="false" />
+    <Property Type="String" Name="TrakerDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="User_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PPM_No" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Application_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Project_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CR_Type" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ActivityType" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="SubActivity" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Start_Time" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="End_Time" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Actual_Time" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Comments" Nullable="true" MaxLength="1000" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="Sec" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="QC_GetHMTasks_Result">
+    <Property Type="Int32" Name="HMID" Nullable="false" />
+    <Property Type="String" Name="HMActivityID" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ApplicationName" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="FSL" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ServiceLevel" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="MonitoringStartTime" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="MonitoringEndTime" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="TimeSlot" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Frequency" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Recurrence" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ActivityCategory" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ActivityDescription" Nullable="true" />
+    <Property Type="String" Name="Remarks" Nullable="true" MaxLength="4000" />
+    <Property Type="Time" Name="ISTTime" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="QC_GetMSADailyTracker_Result">
+    <Property Type="Int32" Name="TrackerNumber" Nullable="false" />
+    <Property Type="String" Name="TrakerDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="User_Name" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Application" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="ServiceNowCategory" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="ServiceNowNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ActivityType" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="SubActivity" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="StartTime" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EndTime" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ActualTime" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Comments" Nullable="true" MaxLength="1000" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="Sec" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="QC_GetMSADailyTracker_Test_Result">
+    <Property Type="Int32" Name="TrackerNumber" Nullable="false" />
+    <Property Type="String" Name="TrakerDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="User_Name" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="ServiceNowCategory" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="ServiceNowNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ActualTime" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Comments" Nullable="true" MaxLength="1000" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="Sec" Nullable="true" />
+    <Property Type="Boolean" Name="IsKeDB" Nullable="true" />
+    <Property Type="String" Name="Kedb" Nullable="true" MaxLength="1000" />
+  </ComplexType>
+  <ComplexType Name="QC_GetMSAFullDump_Result">
+    <Property Type="Int32" Name="TrackerNumber" Nullable="false" />
+    <Property Type="String" Name="TrakerDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="User_Name" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="EmployeeSAPID" Nullable="true" />
+    <Property Type="String" Name="EmployeeName" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="ReportingManagerSAPID" Nullable="true" />
+    <Property Type="String" Name="Application" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="ServiceNowCategory" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="ServiceNowNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ActivityType" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="SubActivity" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="StartTime" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EndTime" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ActualTime" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Comments" Nullable="true" MaxLength="1000" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="Sec" Nullable="true" />
+    <Property Type="Int32" Name="min" Nullable="true" />
+    <Property Type="Decimal" Name="hrs" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="QC_GetRRTracker_Result">
+    <Property Type="Int32" Name="ResponseRecoveryID" Nullable="false" />
+    <Property Type="String" Name="TaskNo" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="Application" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="AssignmentDate" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ResponseTime" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="RecoveryTime" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="IsKeDB" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="KedbLocation" Nullable="false" MaxLength="1500" />
+    <Property Type="String" Name="ResponseHrs" Nullable="true" MaxLength="18" />
+    <Property Type="String" Name="RecoveryHrs" Nullable="true" MaxLength="18" />
+    <Property Type="Int32" Name="ResponseSeconds" Nullable="true" />
+    <Property Type="Int32" Name="RecoverySeconds" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SearchEmpRecords_Sp_Result">
+    <Property Type="Int32" Name="SAPID" Nullable="true" />
+    <Property Type="String" Name="EmployeeName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="ODCLanID" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ODCMailID" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="HCLLANID" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="HCLMailID" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="AIGLANID" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="AIGMailID" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="AIGFullName" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="RMSAPID" Nullable="true" />
+  </ComplexType>
+</Schema>
